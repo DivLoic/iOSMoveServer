@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulator</title>
+</head>
+<body>
+
+<div>
+    <form action="#" method="POST">
+        <input class="mobileid" placeholder="id" type="text" value="2"/>
+        <input class="mobilex" placeholder="x" type="text" value="2.2"/>
+        <input class="mobiley" placeholder="y" type="text" value="3.3"/>
+        <input class="mobilez" placeholder="z"type="text" value="4.4"/>
+        <input class="upsert" type="checkbox" checked>
+        <input class="pulling" type="submit"/>
+    </form>
+    <form action="#" method="POST">
+        <input class="mobileid" placeholder="id" type="text" value="4"/>
+        <input class="mobilex" placeholder="x" type="text" value="0.5"/>
+        <input class="mobiley" placeholder="y" type="text" value="-0.5"/>
+        <input class="mobilez" placeholder="z"type="text" value="0"/>
+        <input class="upsert" type="checkbox" checked>
+        <input class="pulling" type="submit"/>
+    </form>
+    <form action="#" method="POST">
+        <input class="mobileid" placeholder="id" type="text" value="6"/>
+        <input class="mobilex" placeholder="x" type="text" value="0.2"/>
+        <input class="mobiley" placeholder="y" type="text" value="-0.8"/>
+        <input class="mobilez" placeholder="z"type="text" value="0.5"/>
+        <input class="upsert" type="checkbox" checked>
+        <input class="pulling" type="submit"/>
+    </form>
+    <form action="#" method="POST">
+        <input class="mobileid" placeholder="id" type="text" value="8"/>
+        <input class="mobilex" placeholder="x" type="text" value="1"/>
+        <input class="mobiley" placeholder="y" type="text" value="2"/>
+        <input class="mobilez" placeholder="z"type="text" value="3"/>
+        <input class="upsert" type="checkbox" checked>
+        <input class="pulling" type="submit"/>
+    </form>
+</div>
+</body>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $("input.pulling").click(function(e){
+        e.preventDefault();
+        var form = $(this).parent();
+        console.log(form);
+        var ping = {"_id": form.children('input.mobileid').val(),
+        "x": form.children('input.mobilex').val(),
+        "y": form.children('input.mobiley').val(),
+        "z": form.children('input.mobilez').val(),
+        "time": new Date().toLocaleTimeString(),
+        "upsert": form.children('input[type=checkbox]').is(':checked')};
+
+        console.log(ping);
+        $.post("/mobile", {motion: ping} ,function(data){
+           console.log("response : " + data);
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "iOSMove",
+  "description": "Small server side for project II.3510",
+  "main": "app.js",
+  "authors": [
+    "Loïc <ldivad@isep.fr>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "websoket"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "~1.3.7"
+  }
+}

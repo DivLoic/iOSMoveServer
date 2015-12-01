@@ -1,0 +1,25 @@
+html{
+  padding: 0px;
+}
+body {
+  background-color: #F6F6F6;
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/** HEADER **/
+header{
+  min-height: 140px;
+  background-color: #449d44;
+}
+/** BODY **/
+
+.row{
+  padding: 12px 0px;
+}
+/** DIV1 - table **/
+

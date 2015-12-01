@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>iOSMove - II.3510 Mobile technologies</title>
+</head>
+<body>
+<header>
+    <!--<nav>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>-->
+    <p><a href="#" id="socketsafe">connect</a></p>
+</header>
+<div class="container-fluid">
+    <div class="row" id="table">
+        <div class="col-md-8 col-md-offset-2">
+            <table class=" table table-striped">
+                <tr>
+                    <td>id</td>
+                    <td>x</td>
+                    <td>y</td>
+                    <td>z</td>
+                    <td>last update</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" id="work">
+
+    </div>
+    <div class="row" id="team">
+
+    </div>
+</div>
+<ul id="messages"></ul>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/public/javascripts/tabular_logic.js"></script>
+<script>
+
+    var socket = io();
+    var table = new Tabular($);
+
+    socket.on('delete', function(motion){
+        table.removeRow($("tr#" + motion["_id"]));
+    });
+
+    socket.on('update', function(motion){
+        if ($("tr#" + motion["_id"]).length == 0){
+            var row = table.buildRow(motion);
+            $("table").append(row);
+            row.fadeIn('slow');
+        } else {
+            table.updateRow(motion);
+        }
+
+    });
+</script>
+</body>
+</html>
