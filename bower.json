@@ -1,5 +1,5 @@
 {
-  "name": "iOSMove",
+  "name": "iOSMoveServer",
   "description": "Small server side for project II.3510",
   "main": "app.js",
   "authors": [
