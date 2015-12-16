@@ -33,13 +33,25 @@ var Tabular = function(jq) {
         if(this.validDoc(data)){
             var row = this.$("<tr></tr>");
             row.attr("id" , data["_id"]);
-            row.append($("<td>"+data["_id"]+"</td>"));
+            row.append(this.$("<td>"+data["_id"]+"</td>"));
+
+            // optionals keys
+            ["owner"].forEach(function(e){
+                try{
+                    var value = data[e];
+                    row.append(this.$("<td></td>").addClass(e));
+                } catch(e) {
+                    row.append(this.$("<td>"+data[e]+"</td>").addClass(e));
+                }
+            });
+
+            // mendatory keys
             ["x", "y", "z", "time"].forEach(function(e){
-                var cell = $("<td>"+data[e]+"</td>")
+                var cell = this.$("<td>"+data[e]+"</td>");
                 cell.addClass(e);
                 row.append(cell);
             });
-            //this.$("table").append(row);
+
             return row.hide();
         } else {
             return null;

@@ -11,10 +11,11 @@ var socket = require('socket.io-client')('http://' + ip + ':' + port);
 
 /* Mobile only ping through POST */
 router.post('/', function(req, res){
-    var data = req.body.motion;
-    var event = ((JSON.parse(data['upsert'])) ? 'update' : 'delete');
+    var data = JSON.parse(req.body.motion);
+    var event = ((data['upsert']) ? 'update' : 'delete');
 
     socket.emit(event, data);
+
     //TODO: Find an utility to the mobile response.
     res.json({ user: 'tobi' });
     res.end();

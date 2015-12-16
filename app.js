@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 
 var mobile = require('./routes/mobile');
 
-
 var app = express();
 
 // view engine setup
@@ -33,10 +32,6 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.use('/ping', function(req, res){
-  res.sendFile(__dirname + '/public/ping.html');
-});
-
 app.use('/mobile/', mobile);
 
 // catch 404 and forward to error handler
@@ -45,7 +40,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 
 // error handlers
 
@@ -70,13 +64,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-/*var server_port = process.env.IOS_PORT || 3000
-var server_ip_address = process.env.IOS_HOST || '127.0.0.1'
-var server = app.listen(server_port, function () {
-  console.log('SERVER RUNNING: '+server_ip_address + ' : '+server_port+' !');
-});*/
 
 module.exports = app;
 
