@@ -16,14 +16,10 @@ describe('test of the class cleaner', function(){
     }*/
 
     it('should print a date', function(){
-        var d = new Date();
-        console.log(d.toISOString());
         var dd = Date.parse("2015-12-29T17:49:57.541Z");
         var dd2 = Date.parse("2015-12-29T17:50:03.541Z");
-        console.log(typeof(dd));
-        console.log(typeof(dd2));
-        console.log(dd2 - dd);//.getTime()
-        console.log(new Date().toISOString());
+
+        assert.isTrue(dd < dd2);
     });
 
     it('shoul compare 2 dates', function(){
