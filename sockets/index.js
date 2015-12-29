@@ -7,7 +7,5 @@ module.exports = function(io){
         socket.on('update', function(data){
            io.emit('update', data);
         });
-
-
     });
 };

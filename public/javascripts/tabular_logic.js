@@ -71,9 +71,28 @@ var Tabular = function(jq) {
                 $("tr#" + data['_id'] + " td." + k).text(data[k]);
             }
         });
+        $("tr#" + data['_id']).attr('data-start', new Date().toISOString());
     };
-};
 
+
+    this.inmemory = function(ref, document){
+        var table  = ref.slice();
+        if(this.validDoc(document)) {
+            var ids = table.map(function (e) {
+                return e["_id"];
+            });
+
+            var index = ids.indexOf(document["_id"]);
+
+            if (index != -1) {
+                table.splice(index, 1);
+            }
+            table.push(document);
+        }
+        return table;
+    }
+
+};
 
 try{
     module.exports = Tabular;

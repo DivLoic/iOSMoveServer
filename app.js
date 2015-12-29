@@ -8,6 +8,11 @@ var bodyParser = require('body-parser');
 // Routes
 
 var mobile = require('./routes/mobile');
+var clean = require('./routes/clean');
+
+// Api
+
+var shared = require('./api/shared.js');
 
 var app = express();
 
@@ -15,7 +20,8 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'html');
+app.set('env', 'development');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -27,12 +33,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
-
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
 app.use('/mobile/', mobile);
+app.use('/clean/', clean);
+app.use('/shared/', shared);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

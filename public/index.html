@@ -8,16 +8,36 @@
 </head>
 <body>
 <header>
-    <!--<nav>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </nav>-->
+    <div id="banner">
+    </div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Table</a></li>
+                    <li><a href="#howto">How to ping?</a></li>
+                    <li><a href="#try">Try it!</a></li>
+                    <li><a href="#archi">Architecture</a></li>
+                    <li><a href="#code">Code</a></li>
+                    <li><a href="#team">Team 5</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
-<div class="container-fluid">
-    <div class="row" id="table">
+<div class="container-fluid" id="content">
+    <div class="row chapter" id="table">
         <div class="col-md-8 col-md-offset-2">
             <table class=" table table-striped">
                 <caption>Mobile sensor report.</caption>
@@ -36,20 +56,25 @@
                 </tbody>
             </table>
         </div>
-
     </div>
-    <div class="row" id="work">
-
+    <div class="row chapter" id="howto">howto
     </div>
-    <div class="row" id="team">
-
+    <div class="row chapter" id="try">try
+    </div>
+    <div class="row chapter" id="archi">archi
+    </div>
+    <div class="row chapter" id="code">code
+    </div>
+    <div class="row chapter" id="team">team
     </div>
 </div>
 <ul id="messages"></ul>
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/socket.io-client/socket.io.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/public/javascripts/tabular_logic.js"></script>
+<script src="/public/javascripts/cleaner_logic.js"></script>
+<script src="/public/javascripts/script.js"></script>
 <script>
 
     var socket = io();
@@ -62,13 +87,14 @@
     socket.on('update', function(motion){
         if ($("tr#" + motion["_id"]).length == 0){
             var row = table.buildRow(motion);
+            row.attr('data-start', new Date().toISOString());
             $("table tbody").append(row);
             row.fadeIn('slow');
         } else {
             table.updateRow(motion);
         }
-
     });
+
 </script>
 </body>
 </html>

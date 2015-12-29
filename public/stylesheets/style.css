@@ -4,22 +4,42 @@ html{
 body {
   background-color: #F6F6F6;
   padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
 
 a {
-  color: #00B7FF;
+  color: #849ec2;
 }
 
 /** HEADER **/
 header{
-  min-height: 140px;
-  background-color: #449d44;
+  min-height: 180px;
+  background-color: #7f933d;
+}
+
+header div#banner{
+  height: 200px;
+}
+
+ul.nav.navbar-nav li{
+  border-bottom: 5px solid transparent;
+  transition: 0.5s;
+}
+
+ul.nav.navbar-nav li:hover{
+  border-bottom: 5px solid #7F933D;
+}
+ul.nav.navbar-nav li:hover a{
+  color: #7F933D;
 }
 /** BODY **/
 
 .row{
   padding: 12px 0px;
+}
+
+.chapter{
+  min-height: 400px;
 }
 /** DIV1 - table **/
 
