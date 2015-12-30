@@ -5,8 +5,8 @@
 var express = require('express');
 var router = express.Router();
 
-var port = process.env.IOS_PORT || 3000
-var ip = process.env.IOS_HOST || '127.0.0.1'
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 var socket = require('socket.io-client')('http://' + ip + ':' + port);
 
 router.post('/', function(req, res){
