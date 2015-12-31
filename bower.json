@@ -22,6 +22,7 @@
     "socket.io-client": "~1.2.0",
     "bootstrap": "~3.3.6",
     "normalize-css": "normalize.css#~3.0.3",
-    "jquery": "~1.11.1"
+    "jquery": "~1.11.1",
+    "typed.js": "~1.1.1"
   }
 }

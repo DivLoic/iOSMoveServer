@@ -20,7 +20,7 @@ $( document ).ready(function() {
 
     // -- fixed nav bar
     $(window).scroll(function () {
-        if ($(window).scrollTop() > '200') {
+        if ($(window).scrollTop() > '260') {
             $('header nav').addClass('navbar-fixed-top');
             $('#content').css('margin-top","55px');
         } else {
@@ -30,28 +30,26 @@ $( document ).ready(function() {
     });
 
     // -- welcome table
-    var t = new Tabular($);
-    $.post('/shared/', {}, function(data){
+    onShare = function(data, t){
         data['table'].forEach(function(line){
             var row = t.buildRow(line);
             row.attr('data-start', new Date().toISOString());
             $('table tbody').append(row);
             row.fadeIn('slow');
         });
-    });
+    };
 
     // -- cleaner
-    var delay = 6000;
-    var cleaner = new Kototsu();
-    setInterval(function(){
+    var delay = 7000;
+    doClean = function(socket, cleaner){
         $('table tbody tr').each(function(row){
             var iso = $(this).attr('data-start');
             var id = $( this).attr('id');
             if(cleaner.isExpired(iso, new Date().toISOString(), delay)){
-                $.post('/clean/', {'_id': id, 'since': iso}, function(){});
+                socket.emit('clean', {'_id': id, 'since': iso});
             }
         });
-    }, delay);
+    };
 
     // -- try it
     var domform = $("#try form");
@@ -71,10 +69,7 @@ $( document ).ready(function() {
             "upsert": true};
 
         $("a[href='#table']").first().trigger("click");
-        console.log(ping);
-        $.post("/mobile", {motion: JSON.stringify(ping)}, function(){});
+        $.post("/mobile/", {motion: JSON.stringify(ping)}, function(){});
     });
-
-
 });
 

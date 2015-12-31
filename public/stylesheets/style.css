@@ -23,6 +23,8 @@ header{
 header div#banner{
   height: 260px;
 }
+header h1{ font-size:4.5rem; }
+head h4{ color:#fef7c6; }
 img#bannerimg{
   height: 200px;
 }
@@ -41,13 +43,19 @@ ul.nav.navbar-nav li:hover a{
   padding: 12px 0px;
 }
 .chapter{
-  min-height: 400px;
+  min-height: 300px;
 }
 .row h3{
   color: #BDCB8A;
   text-align: center;
   margin: 60px 0px;
 }
+/*howto*/
+.carousel-control.left,
+.carousel-control.right{
+  background-image: none;
+}
+h3.h3fix{ margin-bottom: 0px}
 /*tryit*/
 #try form{
   width: 550px;
@@ -77,8 +85,18 @@ button[type="submit"]:focus{
   color: #7F933D;
   background-color: #bdcb8a;
 }
+/*team*/
+ul.coworker{
+  padding-left:0px;
+  list-style-type: none;
+}
+ul.coworker li{
+  font-size: 3rem;
+  margin: 10px 0px;
+  text-align: center;
+}
 @media only screen and (max-width: 770px) {
   img#bannerimg{
-    height: 100px;
+    display: none;
   }
 }

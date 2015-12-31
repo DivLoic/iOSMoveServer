@@ -50,7 +50,7 @@ var Tabular = function(jq) {
                 row.append(cell);
             });
 
-            return row.hide();
+            return row;
         } else {
             return null;
         }
