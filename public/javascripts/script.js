@@ -53,6 +53,28 @@ $( document ).ready(function() {
         });
     }, delay);
 
+    // -- try it
+    var domform = $("#try form");
+    var tryid = Math.floor(Math.random() * (9999 - 1000 +1)) + 1000;
+    $("#try form input[name='id']").attr('placeholder', 'id:'+tryid);
+    $("#try form input[name='id']").attr('data-info', tryid);
+    $("#try form button").click(function(e){
+        e.preventDefault();
+        var d = new Date();
+        var ping = {"_id": $("#try form input[name='id']")
+            .attr("data-info"),
+            "x": $("#try form input[name='x']").val(),
+            "y": $("#try form input[name='y']").val(),
+            "z": $("#try form input[name='z']").val(),
+            "owner": $("#try form input[name='owner']").val(),
+            "time": d.getHours()+":"+d.getUTCMinutes()+":"+ d.getUTCSeconds(),
+            "upsert": true};
+
+        $("a[href='#table']").first().trigger("click");
+        console.log(ping);
+        $.post("/mobile", {motion: JSON.stringify(ping)}, function(){});
+    });
+
 
 });
 

@@ -6,26 +6,30 @@ body {
   padding: 0px;
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
-
 a {
   color: #849ec2;
 }
-
+h1{
+  color: white;
+}
+h1 small{
+  color: #bdcb8a;
+}
 /** HEADER **/
 header{
-  min-height: 180px;
+  min-height: 280px;
   background-color: #7f933d;
 }
-
 header div#banner{
+  height: 260px;
+}
+img#bannerimg{
   height: 200px;
 }
-
 ul.nav.navbar-nav li{
   border-bottom: 5px solid transparent;
   transition: 0.5s;
 }
-
 ul.nav.navbar-nav li:hover{
   border-bottom: 5px solid #7F933D;
 }
@@ -33,13 +37,48 @@ ul.nav.navbar-nav li:hover a{
   color: #7F933D;
 }
 /** BODY **/
-
 .row{
   padding: 12px 0px;
 }
-
 .chapter{
   min-height: 400px;
 }
-/** DIV1 - table **/
-
+.row h3{
+  color: #BDCB8A;
+  text-align: center;
+  margin: 60px 0px;
+}
+/*tryit*/
+#try form{
+  width: 550px;
+  display: block;
+  margin: auto;
+}
+#try form div.form-group{
+  display: inline-block;
+}
+#try form input:focus{
+  border: solid #7F933D 1px;
+  box-shadow: 0px 0px 5px #7F933D ;
+}
+input.form-control.info{
+  width: 120px;
+}
+input.form-control.axis{
+  width: 60px;
+}
+button[type="submit"]{
+  color: white;
+  background-color: #7F933D;
+  border: solid #7F933D 1px;
+}
+button[type="submit"]:hover,
+button[type="submit"]:focus{
+  color: #7F933D;
+  background-color: #bdcb8a;
+}
+@media only screen and (max-width: 770px) {
+  img#bannerimg{
+    height: 100px;
+  }
+}

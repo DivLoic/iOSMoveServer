@@ -1,100 +1,132 @@
 <!doctype html>
 <html>
-<head>
-    <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <title>iOSMove - II.3510 Mobile technologies</title>
-</head>
+    <head>
+        <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <title>iOSMove - II.3510 Mobile technologies</title>
+    </head>
 <body>
-<header>
-    <div id="banner">
-    </div>
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Table</a></li>
-                    <li><a href="#howto">How to ping?</a></li>
-                    <li><a href="#try">Try it!</a></li>
-                    <li><a href="#archi">Architecture</a></li>
-                    <li><a href="#code">Code</a></li>
-                    <li><a href="#team">Team 5</a></li>
-                </ul>
+    <header>
+        <div id="banner" class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>iOSMove <br/> <small>Internal Sensors Monitoring</small></h1>
+                    <h4>... an awsome text here....</h4>
+                </div>
+                <div class="col-sm-3">
+                    <img src="images/iOSMove-icon-white.png" alt="iOSMove logo" id="bannerimg"/>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
-<div class="container-fluid" id="content">
-    <div class="row chapter" id="table">
-        <div class="col-md-8 col-md-offset-2">
-            <table class=" table table-striped">
-                <caption>Mobile sensor report.</caption>
-                <thead>
-                    <tr>
-                        <td>id</td>
-                        <td>owner</td>
-                        <td>x</td>
-                        <td>y</td>
-                        <td>z</td>
-                        <td>last update</td>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#table">
+                        <img src="images/iOSMove-icon-green.png" alt="iOSMove icon" style="height:30px">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#table">Table</a></li>
+                        <li><a href="#howto">How to ping?</a></li>
+                        <li><a href="#try">Try it!</a></li>
+                        <li><a href="#archi">Architecture</a></li>
+                        <li><a href="#code">Code</a></li>
+                        <li><a href="#team">Team 5</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container" id="content">
+        <div class="row chapter" id="table">
+            <div class="col-md-8 col-md-offset-2">
+                <table class=" table table-striped">
+                    <caption>Mobile sensor report.</caption>
+                    <thead>
+                        <tr>
+                            <td>id</td>
+                            <td>owner</td>
+                            <td>x</td>
+                            <td>y</td>
+                            <td>z</td>
+                            <td>last update</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row chapter" id="howto">howto
+        </div>
+        <div class="row chapter" id="try">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Now you can send a fake measure to the server<br/>from the website.</h3>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" name="id" class="form-control info" placeholder="id:3476" disabled>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="owner" class="form-control info" placeholder="owner" >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="x" class="form-control axis" placeholder="X">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="y" class="form-control axis" placeholder="Y">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="z" class="form-control axis" placeholder="Z">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn" style="width:100px">Ping!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row chapter" id="archi">archi
+        </div>
+        <div class="row chapter" id="code">code
+        </div>
+        <div class="row chapter" id="team">team
         </div>
     </div>
-    <div class="row chapter" id="howto">howto
-    </div>
-    <div class="row chapter" id="try">try
-    </div>
-    <div class="row chapter" id="archi">archi
-    </div>
-    <div class="row chapter" id="code">code
-    </div>
-    <div class="row chapter" id="team">team
-    </div>
-</div>
-<ul id="messages"></ul>
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/bower_components/socket.io-client/socket.io.js"></script>
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/public/javascripts/tabular_logic.js"></script>
-<script src="/public/javascripts/cleaner_logic.js"></script>
-<script src="/public/javascripts/script.js"></script>
-<script>
+    <ul id="messages"></ul>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/socket.io-client/socket.io.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/public/javascripts/tabular_logic.js"></script>
+    <script src="/public/javascripts/cleaner_logic.js"></script>
+    <script src="/public/javascripts/script.js"></script>
+    <script>
 
-    var socket = io();
-    var table = new Tabular($);
+        var socket = io();
+        var table = new Tabular($);
 
-    socket.on('delete', function(motion){
-        table.removeRow($("tr#" + motion["_id"]));
-    });
+        socket.on('delete', function(motion){
+            table.removeRow($("tr#" + motion["_id"]));
+        });
 
-    socket.on('update', function(motion){
-        if ($("tr#" + motion["_id"]).length == 0){
-            var row = table.buildRow(motion);
-            row.attr('data-start', new Date().toISOString());
-            $("table tbody").append(row);
-            row.fadeIn('slow');
-        } else {
-            table.updateRow(motion);
-        }
-    });
+        socket.on('update', function(motion){
+            if ($("tr#" + motion["_id"]).length == 0){
+                var row = table.buildRow(motion);
+                row.attr('data-start', new Date().toISOString());
+                $("table tbody").append(row);
+                row.fadeIn('slow');
+            } else {
+                table.updateRow(motion);
+            }
+        });
 
-</script>
-</body>
+    </script>
+    </body>
 </html>

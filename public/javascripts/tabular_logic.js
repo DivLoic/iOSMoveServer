@@ -39,10 +39,8 @@ var Tabular = function(jq) {
             ["owner"].forEach(function(e){
                 try{
                     var value = data[e];
-                    row.append(this.$("<td></td>").addClass(e));
-                } catch(e) {
                     row.append(this.$("<td>"+data[e]+"</td>").addClass(e));
-                }
+                } catch(e) { }
             });
 
             // mendatory keys
