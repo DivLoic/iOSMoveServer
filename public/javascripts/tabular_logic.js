@@ -33,6 +33,7 @@ var Tabular = function(jq) {
         if(this.validDoc(data)){
             var row = this.$("<tr></tr>");
             row.attr("id" , data["_id"]);
+            row.append(this.$("<td><span class='fa fa-apple'></span></td>"));
             row.append(this.$("<td>"+data["_id"]+"</td>"));
 
             // optionals keys

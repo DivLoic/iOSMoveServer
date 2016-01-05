@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="stylesheets/style.css">
         <title>iOSMove - II.3510 Mobile technologies</title>
     </head>
@@ -14,10 +15,16 @@
                     <h1>iOSMove <br/>
                         <small>Internal Sensors Monitoring</small>
                     </h1>
-                    <h4></h4>
+                    <h4>
+                        <span class="typedone"></span>
+                    </h4>
+                    <h4>
+                        <span class="typedtwo"></span>
+                        <span class="typedthree"></span>
+                    </h4>
                 </div>
                 <div class="col-sm-3">
-                    <img src="images/iOSMove-icon-white.png" alt="iOSMove logo" id="bannerimg"/>
+                    <img src="/public/images/iOSMove-icon-white.png" alt="iOSMove logo" id="bannerimg"/>
                 </div>
             </div>
         </div>
@@ -32,13 +39,13 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#table">
-                        <img src="images/iOSMove-icon-green.png" alt="iOSMove icon" style="height:30px">
+                        <img src="/public/images/iOSMove-icon-green.png" alt="iOSMove icon" style="height:30px">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="#table">Table</a></li>
-                        <li><a href="#howto">How to ping?</a></li>
+                        <li><a href="#howto">Submission</a></li>
                         <li><a href="#try">Try it!</a></li>
                         <li><a href="#archi">Architecture</a></li>
                         <li><a href="#code">Code</a></li>
@@ -55,6 +62,7 @@
                     <caption>Mobile sensor report.</caption>
                     <thead>
                         <tr>
+                            <td><span class="fa fa-apple"></span></td>
                             <td>id</td>
                             <td>owner</td>
                             <td>x</td>
@@ -139,9 +147,14 @@
                 </form>
             </div>
         </div>
-        <div class="row chapter" id="archi">
-            <div class="col-md-8 col-md-offset-2">
+        <div class="row chapter" id="archi" style="background-color: white">
+            <div class="col-md-12">
                 <h3>The simplest (and laziest) architecture.<br/></h3>
+                <img src="/public/images/iOSMoveschema.svg"
+                     alt="iOSMove architecture"
+                     height="350px"
+                     class="arch"
+                />
             </div>
         </div>
         <div class="row chapter" id="code">
@@ -177,6 +190,7 @@
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/socket.io-client/socket.io.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/typed.js/dist/typed.min.js"></script>
     <script src="/public/javascripts/tabular_logic.js"></script>
     <script src="/public/javascripts/cleaner_logic.js"></script>
     <script src="/public/javascripts/script.js"></script>
@@ -195,10 +209,11 @@
             if ($("tr#" + motion["_id"]).length == 0){
                 var row = table.buildRow(motion);
                 row.attr('data-start', new Date().toISOString());
-                $("table tbody").append(row);
+                $("div#table div table tbody").append(row);
                 row.hide().fadeIn('slow');
             } else {
                 table.updateRow(motion);
+                blink($('tr#'+motion['_id']).find( 'span.fa-apple' ));
             }
         });
 
@@ -206,7 +221,7 @@
 
         // --
 
-        socket.emit('share', {});
+        //socket.emit('share', {});
         setInterval(function(){doClean(socket, cleaner)}, delay);
 
     </script>

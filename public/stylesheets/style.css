@@ -24,7 +24,7 @@ header div#banner{
   height: 260px;
 }
 header h1{ font-size:4.5rem; }
-head h4{ color:#fef7c6; }
+header h4{ color:#fef7c6; }
 img#bannerimg{
   height: 200px;
 }
@@ -50,6 +50,15 @@ ul.nav.navbar-nav li:hover a{
   text-align: center;
   margin: 60px 0px;
 }
+/*table*/
+.fa-apple{
+  transition: 0.6s;
+}
+.fa-apple.green{
+  color: #84993e;
+  text-shadow: 0px 0px 10px #7F933D;
+}
+
 /*howto*/
 .carousel-control.left,
 .carousel-control.right{
@@ -85,6 +94,12 @@ button[type="submit"]:focus{
   color: #7F933D;
   background-color: #bdcb8a;
 }
+/*archi*/
+img.arch{
+  display: block;
+  margin: auto;
+  opacity: 0.9;
+}
 /*team*/
 ul.coworker{
   padding-left:0px;
@@ -99,4 +114,26 @@ ul.coworker li{
   img#bannerimg{
     display: none;
   }
+}
+/*typed*/
+.typed-cursor{
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
 }

@@ -10,6 +10,7 @@ module.exports = function(io){
         });
 
         socket.on('share', function(data){
+            GLOBAL.iostable = GLOBAL.iostable.filter(function(e){return e["upsert"];});
             io.emit('share', {table: GLOBAL.iostable});
         });
 

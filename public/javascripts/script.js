@@ -4,6 +4,15 @@
 
 $( document ).ready(function() {
 
+    blink = function(apple){
+        apple.toggleClass('green')
+            .delay('600')
+            .queue(function(){
+                $(this).toggleClass('green');
+                $(this).dequeue();
+            });
+    };
+
     // --  cool ink scroll
     $('a[href^="#"]').click(function(e){
         e.preventDefault();
@@ -34,15 +43,14 @@ $( document ).ready(function() {
         data['table'].forEach(function(line){
             var row = t.buildRow(line);
             row.attr('data-start', new Date().toISOString());
-            $('table tbody').append(row);
+            $('div#table div table tbody').append(row);
             row.fadeIn('slow');
         });
     };
 
     // -- cleaner
-    var delay = 7000;
     doClean = function(socket, cleaner){
-        $('table tbody tr').each(function(row){
+        $('div#table div table tbody tr').each(function(row){
             var iso = $(this).attr('data-start');
             var id = $( this).attr('id');
             if(cleaner.isExpired(iso, new Date().toISOString(), delay)){
@@ -71,5 +79,26 @@ $( document ).ready(function() {
         $("a[href='#table']").first().trigger("click");
         $.post("/mobile/", {motion: JSON.stringify(ping)}, function(){});
     });
+
+    //-- typed
+    $(".typedone").typed({
+        strings: ["II.3510 Mobile technologies from ISEP"],
+        typeSpeed: 0.5,
+        showCursor: false,
+        callback: function() {
+            $(".typedtwo").typed({
+            strings: ["and"],
+            typeSpeed: 0.5,
+            showCursor: false,
+            callback: function(){
+                    $(".typedthree").typed({
+                    strings: ["Android Developement ^1000",
+                        "iOS Developement",
+                        "iOS / Swift Developement"],
+                    typeSpeed: 0.5
+                });}
+        })}
+    });
+
 });
 
