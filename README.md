@@ -15,13 +15,13 @@ See [bower.io](http://bower.io)
 Installation
 ------------
 
-1. fork it
+1. Fork it
 2. Go in the project folder & run the following commands:
+3. Then you can start the server with `npm start`
 ```shell
 $ npm install
 $ bower install
 ```
-3. then you can start the server with `npm start`
 
 Add dependencies
 ------------
@@ -36,5 +36,5 @@ Mobile side
 ------------
 Sice the project involves a client side...
 
-... You may also have a look at the node.js project:
+... You may also have a look at the :iphone: iOS project:
 [iOSMove](https://github.com/DivLoic/iOSMove)
